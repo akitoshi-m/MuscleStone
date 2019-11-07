@@ -24,41 +24,32 @@
 </div>
 
 <!-- サービス紹介 -->
-<div class="service-introduction-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-    		<div class="service-title text-center">
-    			<h1 class="title">MuscleStoneとは</h1>
-    		</div>
-        <div class="service-explanation">
-    			<h3 class="service-point text-center fas fa-comments"> トレーニング内容を共有できるSNSサービス</h3>
-    		</div>
-        <div class="service-explanation">
-    			<h3 class="service-point text-center fas fa-dumbbell"> 自分専用のセットメニューを作成できる</h3>
-    		</div>
-    		<div class="service-explanation">
-    			<h3 class="service-point text-center fas fa-chart-line"> 体重の変化をグラフで管理&確認ができる</h3>
-    		</div>
-    	</div>
-    </div>
-    <div class="row">
-    	<div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2 image">
-    	  <%= image_tag('icons/f_duck.jpg') %>
-    	</div>
-    	<div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2 image">
-    	  <%= image_tag('icons/f_duck.jpg') %>
-    	</div>
-    	<div class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2 image">
-    	  <%= image_tag('icons/f_duck.jpg') %>
-    	</div>
-    </div>
-  	<div class="text-center">
-      <%= form_for(:session, url: login_path) do |f| %>
-        <%= f.hidden_field :email, value: 'kawauso@aaa.com' %>
-        <%= f.hidden_field :password, value: 'kawauso12' %>
-        <%= f.submit 'テストユーザーとしてログイン', class: 'btn btn-primary btn-lg' %>
-      <% end %>
-    </div>
+<div class="service-introduction">
+	<div class="service-title text-center">
+		<h1 class="title">MuscleStoneとは</h1>
 	</div>
+  <div class="service-all-item">
+    <div class="item">
+  		<div class="fas fa-comments"></div>
+  		<p class="explanation">①トレーニング内容を共有できるSNSサービス</p>
+  		<%= image_tag('icons/f_wine.png') %>
+  	</div>
+    <div class="item">
+  		<div class="fas fa-dumbbell"></div>
+  		<p class="explanation">②自分専用のセットメニューを作成できる</p>
+  		<%= image_tag('icons/f_wine.png') %>
+  	</div>
+  	<div class="item">
+  		<div class="fas fa-chart-line"></div>
+  		<p class="explanation">③体重の変化をグラフで管理&確認ができる</p>
+  		<%= image_tag('icons/f_wine.png') %>
+  	</div>
+  </div>
+	<div class="text-center">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.hidden_field :email, value: 'kawauso@aaa.com' %>
+      <%= f.hidden_field :password, value: 'kawauso12' %>
+      <%= f.submit 'テストユーザーとしてログイン', class: 'btn btn-primary btn-lg' %>
+    <% end %>
+  </div>
 </div>
