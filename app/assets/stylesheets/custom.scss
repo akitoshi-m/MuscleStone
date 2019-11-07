@@ -177,15 +177,53 @@ h1, h2 {
   }
 }
 
-.service-introduction-wrapper {
+//トップページのサービス紹介部分
+.service-introduction {
   background-color: #DDD;
-
-  .image {
-    margin-bottom: 15px;
+  .service-title {
+    .title {
+      margin: 0;
+      padding: 30px 0;
+    }
   }
-
-  img {
-    width: 100%;
+  .service-all-item {
+    display: flex;
+    .item {
+      width:33%;
+      text-align: center;
+      .fas {
+        font-size: 80px;
+      }
+      .explanation {
+        font-size:18px;
+        padding: 20px 0;
+        margin:0 5px;
+      }
+    
+      img {
+        width: 80%;
+        margin:10px;
+      }
+    }
+    /* 幅が 767px 以下であれば */
+    @media (max-width:767px) {
+      .item {
+        width:80%;
+        text-align: center;
+        .fas {
+          font-size: 60px;
+        }
+        .explanation {
+          font-size:14px;
+          padding: 20px 0;
+          margin:0 5px;
+        }
+        img {
+          width: 80%;
+          margin:10px;
+        } 
+      }
+    }
   }
 }
 
