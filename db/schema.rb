@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_061541) do
+ActiveRecord::Schema.define(version: 2019_11_10_070835) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_061541) do
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "use_id"
     t.string "description"
     t.integer "weight"
     t.integer "rep"
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_061541) do
     t.date "date"
     t.string "part"
     t.string "comment"
+    t.integer "user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_061541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    #unique: trueはfollower_idとfollowed_idの組み合わせがユニークである為の制限
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
@@ -61,9 +60,9 @@ ActiveRecord::Schema.define(version: 2019_11_04_061541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.boolean "admin"
     t.string "comment"
     t.string "image_icon"
-    t.string "image_background"
   end
 
   create_table "weights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

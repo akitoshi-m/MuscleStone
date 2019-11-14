@@ -1,8 +1,8 @@
 <div class="users-new-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">アカウント登録</h1>
+      <div class="col-md-6 col-md-offset-3 users-new-container">
+        <h1 class="text-center text-white users-new-container">アカウント登録</h1>
         <%= form_for @user do |f| %>
           <div class="form-group">
             <%= f.label :name, class: 'text-white' %>
@@ -20,9 +20,9 @@
             <%= f.label :password_confirmation, class: 'text-white' %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>            
           </div>
-          <%= f.submit "登録", class: 'btn-block btn-white' %>
+          <%= f.submit "登録", class: 'btn btn-block btn-red' %>
         <% end %>
-        <%= link_to 'ログインはこちらから', login_path, class: 'text-white' %>
+        <%= link_to '登録がお済みの方はこちらから', login_path, class: 'text-white text-center' %>
       </div>
     </div>
   </div>

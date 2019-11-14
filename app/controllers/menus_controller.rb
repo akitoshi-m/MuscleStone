@@ -5,11 +5,12 @@ class MenusController < ApplicationController
   
   def index
     @menus = Menu.all.order(created_at: :desc)
+    @user = User.find_by(params[:id])
   end
   
   def create
-    @menu = Menu.new(menu_params)
-    
+    @menu = current_user.menus.new(menu_params)
+
     if @menu.save
       redirect_to menus_path, success: "トレーニングメニューを作成しました"
     else
@@ -17,11 +18,11 @@ class MenusController < ApplicationController
       render :new
     end
   end
-  
-  def destroy
-  end
 
-  def edit
+  def destroy
+    @menu = Menu.find_by(id: params[:id])
+    @menu.destroy
+    redirect_to menu_path, success: "メニューを削除しました。"
   end
   
   private

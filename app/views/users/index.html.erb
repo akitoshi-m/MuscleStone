@@ -1,17 +1,16 @@
 <div class="users-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="user-index-heading">ユーザー一覧</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">ユーザー一覧</h1>
         <%= paginate @users %>
         <% @users.each do |user| %>
    　      <div class="user-index-single">
-            <p class="user-right">
             <%#= link_to user_path(user_id: user.id) do %>
-            <%= link_to "#" do %>
-              <%= user.name %>
-            <% end %>
-            </p>
+              <!--user.name-->
+            <%# end %>
+            <%= link_to user.name, user_path(id: user.id) %>
+
           </div>
         <% end %>
         <%= paginate @users %>

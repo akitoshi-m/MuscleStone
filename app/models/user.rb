@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   validates :name, presence: true, length: { maximum: 15 }
   validates :email, presence: true, format: { with: /\A[A-Za-z0-9._+]*+@[A-Za-z]*+.[A-Za-z]*\z/ }
   
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   #ユーザーがいいねしたworkoutデータを全て取得できる
   has_many :like_workouts, through: :likes, source: 'workout'
   has_many :weights
+  has_many :menus
   
   has_many :active_relationships, class_name: "Relationship",  foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -18,7 +20,6 @@ class User < ApplicationRecord
   #:sourceキーで参照先を指定できる
   
   mount_uploader :image_icon, ImageUploader
-  mount_uploader :image_background, ImageUploader
   
   #ユーザーをフォローする
   def follow(other_user)

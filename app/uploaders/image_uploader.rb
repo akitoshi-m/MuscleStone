@@ -23,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    "default.jpg"
+    "default_icon.png"
   end
   
   # Process files as they are uploaded:

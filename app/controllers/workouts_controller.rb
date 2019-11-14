@@ -4,7 +4,8 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    @workouts = Workout.all.order(created_at: :desc).page(params[:page]).per(25)
+    #インスタンス変数にWorkoutモデルを全表示させ降順に並べてページネートさせる
+    @workouts = Workout.all.order(created_at: :desc).page(params[:page]).per(5)
     
     #@workouts = Workout.all.includes(:like_users)
     #指定したモデルのデータを一括で取得しキャッシュしておく

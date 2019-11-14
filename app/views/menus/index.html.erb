@@ -1,15 +1,16 @@
-<div class="workout-index-wrapper">
+<div class="menu-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="menu-heading">○○さんのトレーニングメニュー</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center"><%= @user.name %>さんのトレーニングメニュー</h1>
+        <%# if @user.menus.any? %>
         <div class="add-training">
           <%= link_to new_menu_path do %>
-            <p>トレーニングメニュー追加</p>
+            トレーニングメニュー追加
           <% end %>
         </div>
-        <% @menus.each do |menu| %>
           <!-- トレーニングメニューを表示 -->
+        <% @menus.each do |menu| %>
           <div class="menu-index">
             <!-- 部位 -->
             <p class="training-name">
@@ -39,8 +40,13 @@
             <p class="comment">
               <%= menu.comment %>
             </p>
+            <!--メニューを削除する-->
+            <%= link_to menu_path(id: @menu.id), method: :delete do %>
+              <div class="destroy-btn"><i class="fas fa-trash-alt"></i>メニューを削除</div>
+            <% end %>
           </div>
-        <% end %>    
+        <% end %> 
+        <%# end %>
       </div>
     </div>
   </div>
