@@ -49,20 +49,13 @@
 
 <!--ユーザーのトレーニングデータ-->
 <div class="user-data-wrapper">
-  <div class="data-menu">マイデータ</div>
+  <div class="data-menu">
+    トレーニングメニュー
+  </div>
   <div class="sub-menu">
-    <div class="one-menu">
-      <p class="explanation">トレーニングメニュー</p>
-      <%= link_to menus_path(@user.id) do %> 
-        <%= image_tag 'icons/f_dumbbell.jpg' %>
-      <% end %>
-    </div>
-    <div class="one-menu">
-      <p class="explanation">体重グラフ</p>
-      <%= link_to weights_path do %>
-        <%= image_tag 'icons/f_graph.jpg' %>
-      <% end %>
-    </div>
+    <%= link_to menus_path(user_id: @user.id) do %> 
+      <%= image_tag 'icons/f_dumbbell.jpg' %>
+    <% end %>
   </div>
 </div>
 

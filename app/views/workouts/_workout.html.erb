@@ -6,22 +6,26 @@
           <%= paginate @workouts %>
           <% @workouts.each do |workout| %>
           <div class="workout-index">
-            <!-- 投稿者の名前を表示 -->
-            <h2 class="workout-author">
-              <%#= link_to user_path(id: user_id) do %>
+            <div class="workout-user-space">
+              <!--投稿者のアイコンを表示-->
+              <div class="workout-user-icon">
+                <%= image_tag workout.user.image_icon.url %>
+              </div>
+              <!-- 投稿者の名前を表示 -->
+              <div class="workout-author">
                 <%= workout.user.name %>
-              <%# end %>
-            </h2>
+              </div>
+            </div>
             <!-- 投稿の内容を表示 -->
-            <p class="workout-text">
+            <div class="workout-text">
               <%= link_to workout_path(id: workout.id) do %>
                 <%= workout.description %>
               <% end %>
-            </p> 
+            </div> 
             <!-- 画像投稿があれば表示 -->
-            <p>
+            <div class="workout-image">
               <%= image_tag workout.image.url if workout.image? %>
-            </p> 
+            </div> 
             <div class="workout-index-icon">
               <!-- いいねボタンを表示 -->
               <% if !workout.like_users.include?(current_user) %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'new/index'
   root 'pages#index'
   get 'menus/new'
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :weights
   resources :workouts
   resources :menus
   resources :relationships, only: [:create, :destroy]

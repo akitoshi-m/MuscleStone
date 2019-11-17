@@ -20,21 +20,23 @@
             </div>
             <!-- 回数 -->
             <div class="form-group">
-              <%= f.label :回数, class:'col-md-3 col-form-label' %>
+              <%= f.label :回数, class:'text-black' %>
               <%= f.text_field :rep, class: 'form-control' %>
             </div>
             <!-- セット数 -->
             <div class="form-group">
-              <%= f.label :セット数, class:'col-md-3 col-form-label' %>
+              <%= f.label :セット数, class:'text-black' %>
               <%= f.text_field :set, class: 'form-control' %>
             </div>
             <!-- コメント -->
             <div class="form-group">
-              <%= f.label :comment, 'コメント', class:'col-md-3 col-form-label' %>
+              <%= f.label :comment, 'コメント', class:'text-black' %>
               <%= f.text_area :comment, class: "form-control", rows: "3" %>
             </div>
             <!-- トレーニングメニュー追加ボタン --> 
-          　<%= f.submit "追加", class: 'btn btn-block btn-primary' %>
+            <% if current_user.id == @user.id %>
+          　   <%= f.submit "追加", class: 'btn btn-block btn-primary' %>
+            <% end %>
           <% end %>
         </div>
       </div>

@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page]).per(25)
+    @users = User.all.page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
-    @workouts = @user.workouts.page(params[:page]).per(25)
+    @workouts = @user.workouts.page(params[:page]).per(10)
   end
     
   def create
@@ -44,14 +44,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.page(params[:page]).per(25)
+    @users = @user.following.page(params[:page]).per(10)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(25)
+    @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'
   end  
   

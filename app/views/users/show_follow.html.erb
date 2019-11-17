@@ -1,8 +1,8 @@
 <!-- フォローしているユーザーとフォロワーの両方を表示 -->
-<div class="user-follow-wrapper">
+<div class="user-follow-wrapper workout-index-wrapper">
   <div class="container">
     <div class="row">
-      <aside class="col-md-8 col-md-offset-2">
+      <aside class="col-md-6 col-md-offset-3">
         <div class="user-follow-info">
           <h1 class="text-center"><%= @user.name %>さんのフォロー状況</h1>
         </div>
@@ -10,17 +10,26 @@
           <!-- フォローしているユーザーの情報を表示 -->
           <%= render 'shared/stats' %>
           <% if @users.any? %>
-            <div class="user_avatars">
-              <!--フォローしているユーザーのリンク付け-->
-              <% @users.each do |user| %>
-                <%= link_to user.name , user %>
-              <% end %>
-            </div>
+            <!--フォローしているユーザーのリンク付け-->
+            <% @users.each do |user| %>
+              <div class="workout-index">
+                <div class="workout-user-space">
+                  <!--投稿者のアイコンを表示-->
+                  <div class="workout-user-icon">
+                    <%= image_tag user.image_icon.url %>
+                  </div>
+                  <!-- 投稿者の名前を表示 -->
+                  <div class="workout-author">
+                    <%= link_to user.name , user %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </section>
       </aside>
       
-      <div class="col-md-8">
+      <div class="col-md-6 col-md-offset-3">
         <h3><%= @title %></h3>
         <% if @users.any? %>
   

@@ -1,16 +1,21 @@
-<div class="users-index-wrapper">
+<div class="workout-index-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">ユーザー一覧</h1>
         <%= paginate @users %>
         <% @users.each do |user| %>
-   　      <div class="user-index-single">
-            <%#= link_to user_path(user_id: user.id) do %>
-              <!--user.name-->
-            <%# end %>
-            <%= link_to user.name, user_path(id: user.id) %>
-
+          <div class="workout-index">
+            <div class="workout-user-space">
+              <!--投稿者のアイコンを表示-->
+              <div class="workout-user-icon">
+                <%= image_tag user.image_icon.url %>
+              </div>
+              <!-- 投稿者の名前を表示 -->
+              <div class="workout-author">
+                <%= user.name %>
+              </div>
+            </div> 
           </div>
         <% end %>
         <%= paginate @users %>

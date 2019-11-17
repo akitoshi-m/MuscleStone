@@ -11,30 +11,25 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
 //= require Chart.min
 //= require chartkick
 //= require Chart.bundle
 //= require_tree
 
-<script>
-$(function () {
-    function eventCalendar() {
-        return $('#calendar').fullCalendar({});
-    };
-    function clearCalendar() {
-        $('#calendar').html('');
-    };
-    $(document).on('turbolinks:load', function () {
-    eventCalendar();
-    });
-    $(document).on('turbolinks:before-cache', clearCalendar);
-    });
-</script>
+$(function() {
+$(document).on("ajax:success", ".fav", function(e) {
+  if ($('#' + e.detail[0]).hasClass('fa-heart')) {
+    $('#' + e.detail[0]).removeClass('fa-heart').addClass('fa-heart-o');
+  } else {
+$('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
+  }
+})
+})
+  

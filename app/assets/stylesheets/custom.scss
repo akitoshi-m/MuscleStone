@@ -3,6 +3,10 @@ h1, h2 {
   font-weight: bold;
 }
 
+ul {
+  list-style: none;
+}
+
 .text-white {
   color: #fff;
   font-size: 30px;
@@ -68,6 +72,18 @@ h1, h2 {
 //ボタン全般
 .btn {
   margin:20px 0;
+}
+
+.destroy-btn {
+  padding-left:10px;
+  text-align:right
+}
+
+.add-training-btn {
+  display:block;
+  font-size:17px;
+  padding:10px 0;
+  margin:0 50px;
 }
 
 .edit-btn {
@@ -202,6 +218,8 @@ h1, h2 {
     
       img {
         width: 80%;
+        border:medium;
+        border: solid #000;
       }
     }
     /* 幅が 767px 以下であれば */
@@ -218,8 +236,8 @@ h1, h2 {
           margin:0 5px;
         }
         img {
-          width: 100%;
-          padding:10px 50px;
+          width: 80%;
+          margin:20px;
         } 
       }
     }
@@ -251,71 +269,49 @@ h1, h2 {
     margin: 30px 0;
     border: 2px solid #CCC;
     border-radius: 3px;
-    //投稿したユーザー名
-    .workout-author {
-      padding: 0 20px;
-    }
-     //投稿したテキスト内容
-    .workout-text {
-      font-size: 18px;
-      padding: 10px 20px;
-    }
-    //画像
-    img {
-      padding:10px 20px ;
-      width: 100%;
-    }
-    //いいねとコメントアイコン
-    .workout-index-icon i { 
-      font-size: 20px;
-      width: 35px;
-      height: 30px;
-      padding-left: 20px;
-    }
-    .comment-index {
-      font-size: 20px;
-      padding: 0 0 10px 20px;
-      .comment-single {
-        font-size:15px;
-        padding:10px;
+    .workout-user-space {
+      display:flex;
+      //投稿したユーザーのアイコン
+      .workout-user-icon img {
+        margin:10px 0 10px 20px;
+        border:2px #000 solid;
+        border-radius:50%;
+        width:50px;
+        height:50px;      
+      }
+      //投稿したユーザー名
+      .workout-author {
+        font-size:30px;
+        margin:auto 5px;
       }
     }
-  }
-}
-
-//投稿詳細ページ
-.workout-show-wrapper {
-  padding-top: 70px;
-  background-color: #DDD;
-  padding-bottom:20px;
-  //投稿一覧
-  .workout-show {
-    background-color:white;
-    padding-top: 20px 0;
-    margin: 30px 0;
-    border: 2px solid #CCC;
-    border-radius: 3px;
-    //投稿したユーザー名
-    .workout-author {
-      padding: 0 20px;
-    }
      //投稿したテキスト内容
     .workout-text {
       font-size: 18px;
       padding: 10px 20px;
     }
     //画像
-    img {
+    .workout-image img{
       padding:10px 20px ;
       width: 100%;
     }
     //いいねとコメントアイコン
-    .workout-index-icon i { 
+    .workout-index-icon { 
       font-size: 20px;
-      width: 35px;
       height: 30px;
       padding-left: 20px;
+      .unlike-btn {
+        color:red;
+      }
     }
+    .workout-time {
+      text-align:right;
+      padding-right:20px;
+    }
+    .delete-btn {
+       padding-left:20px;
+    }
+    
     .comment-index {
       font-size: 20px;
       padding: 0 0 10px 20px;
@@ -349,12 +345,6 @@ h1, h2 {
 .user-top-wrapper { 
   background-color: #DDD;
   text-align: center;
-  
-  .user-background-image {
-    position: relative; /* 子要素の起点を指定 */
-    width: 100%;
-    height: 240px;
-  }
   
   .user-icon {
     margin-top:30px;
@@ -405,7 +395,7 @@ h1, h2 {
   background-color: #DDD;
   text-align: center; 
   .data-menu {
-    width: 85%;
+    width: 50%;
     margin: 0 auto 20px;
     font-weight: bold;
     padding: 0.5em 1em;
@@ -414,23 +404,13 @@ h1, h2 {
     background: #fff;
   }
   .sub-menu {
-    display: flex;
-    .one-menu {
-      width:50%;
-      text-align: center;  
-      .explanation {
-        width:70%;
-        margin:auto;
-        font-weight: bold;
-        padding: 0.5em 1em;
-        border-top: solid 4px #000;
-        border-bottom: solid 4px #000;
-        background: #fff;        
-      }
-      img{
-        width:70%;
-        margin:10px;
-      }
+    // display: flex;
+    margin:auto;
+    width:50%;
+    text-align: center;  
+    img{
+      margin:auto;
+      width:100%;
     }
   }
 }
@@ -464,7 +444,7 @@ h1, h2 {
   }
 }
 
-//ユーザーのトレーニングメニューセット
+//ユーザーのトレーニングメニュー作成
 .menu-new-wrapper {
   background-color:#DDD;
 }
@@ -472,74 +452,41 @@ h1, h2 {
 //トレーニングメニュー一覧
 .menu-index-wrapper {
   background-color:#DDD;
-  
-  .add-training {
-    padding:20px;
-  }
   .menu-index {
     background-color:white;
     padding:20px;
     margin: 30px 0;
     border: 2px solid #CCC;
     border-radius: 3px;
-  }
-}
+    
 
-//いいね一覧ページ
-.likes-index-wrapper {
-  padding-bottom: 20px;
-  padding-top: 70px;
-  background-color: #DDD;
-  .like_workouts-index {
-    background-color: white;
-    margin: 30px 0;
-    border: 2px solid #DDD;
-    border-radius: 3px;
-    //投稿したユーザー名
-    .workout-author {
-      padding-left:20px;
-    }
-     //投稿したテキスト内容
-    .workout-text {
-      font-size:18px;
-      padding: 10px 20px;
-    }
-    img {
-      width: 100%;
-      padding:10px 20px ;
-    }
-    //いいねとコメントアイコン
-    .workout-index-icon i { 
-      font-size: 20px;
-      width: 35px;
-      height: 30px;
-      padding-left: 20px;
-    }
-    .comment-index {
-      font-size: 20px;
-      padding: 0 0 10px 20px;
-      .comment-single {
-        font-size:15px;
-        padding:10px;
+    .menu-index-1 {
+      font-size:20px;
+      display:flex;
+      .part-name {
+      height:50px;
+      width:50px;
+      border-radius:50%;
+      line-height:50px;
+      text-align:center;
+      background:pink;
+      }
+      .training-name {
+        margin:auto 10px;
       }
     }
+    .menu-index-2 {
+      padding:10px;
+      font-size:15px;
+      display:flex;
+      .menu-2 {
+        padding-right:10px;
+      }
+    }
+    .menu-index-3 {
+      padding:5px 10px;
+    }
   }
-}
-
-//***体重グラフ***
-
-.weight-top-wrapper {
-  background-color:#DDD;
-  .weight-data-create {
-    background-color:white;
-  }
-  
-  
-}
-.weight-new-wrapper {
-  height:87vh;
-  padding-top: 70px;
-  background-color: #DDD;
 }
 
 //ページネーションのデザイン
