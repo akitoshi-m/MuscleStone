@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     #「該当のメールアドレスを持つuserが存在している、かつuserのパスワードが正しい」場合true
     if user && user.authenticate(session_params[:password])
       log_in user
-      redirect_to workouts_path, success: 'ログインに成功しました'
+      redirect_to root_path, success: 'ログインに成功しました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new

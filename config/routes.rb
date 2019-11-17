@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'new/index'
   root 'pages#index'
   get 'menus/new'
@@ -18,18 +17,17 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'  #入力されたデータを元にSessionを作成
   delete '/logout', to: 'sessions#destroy' #Sessionを削除する
   
+  get    '/comment/new',      to: 'comment#new'
+  post   '/comments/new',     to: 'comments#create'
+  delete '/workouts/:workout_id/comments/destroy', to: 'comments#destroy'
+  
   resources :users
   resources :users do
     member do
       get :following, :followers
     end
   end
-  resources :weights
   resources :workouts
-  resources :workouts do
-    resources :comments
-    #/workouts/:workout_id/comment/newのパスが使用できる
-  end
   resources :menus
   resources :relationships, only: [:create, :destroy]
 end

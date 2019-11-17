@@ -1,14 +1,22 @@
+//テキスト全般
 h1, h2 {
   font-weight: bold;
 }
 
-//テキスト全般
+ul {
+  list-style: none;
+}
+
 .text-white {
   color: #fff;
   font-size: 30px;
   //font-weight: bold;
 }
-
+.text-general{
+  color: #fff;
+  font-size: 25px;
+  
+}
 .text-center {
   text-align: center;
 }
@@ -24,97 +32,6 @@ h1, h2 {
 .sub-title {
   font-size: 30px;
 }
-
-//ボタン全般
-.btn {
-  margin:20px 0;
-}
-
-.edit-btn {
-  margin: 10px 0 30px 0;
-}
-
-.btn-yellow {
-  color: #000;
-  border: 1px solid #fff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  background-color: rgba(255,0,0,0.3);
-  
-  &:hover {
-    color: #000;
-    background-color: rgba(255,0,0,0.6);
-  }
-}
-
-.btn-black {
-  color: #565656;
-  border: 1px solid #565656;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
-
-  &:hover {
-    color: #565656;
-  }
-}
-
-.btn-white {
-  color: #fff;
-  border: 1px solid #fff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-top: 5px;
-  font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
-
-  .input {
-      margin-top: 5px;
-  }
-  
-  &:hover {
-    color: #000;
-    background-color: #fff;
-  }
-}
-//フォロー関連
-//フォローの統計情報
-.stats {
-  font-size: 20px;
-  overflow: auto;
-  margin: 15 auto;
-  padding: 0;
-  a {
-    // float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: inline-block;
-  }
-}
-
-//フォロー詳細ページ
-.user-follow-wrapper {
-  padding-top: 70px;
-  background-color: #EEE;
-  
-  .user-follow-info {
-    
-  }
-}
-
 
 //アラート表示
 .alert {
@@ -152,6 +69,101 @@ h1, h2 {
   font-size:18px;
   }
 
+//ボタン全般
+.btn {
+  margin:20px 0;
+}
+
+.destroy-btn {
+  padding-left:10px;
+  text-align:right
+}
+
+.add-training-btn {
+  display:block;
+  font-size:17px;
+  padding:10px 0;
+  margin:0 50px;
+}
+
+.edit-btn {
+  margin: 10px 0 30px 0;
+}
+
+.btn-arrange {
+  border: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 5px;
+  font-size: 20px;
+
+  .input {
+      margin-top: 5px;
+  }
+}
+
+.btn-white {
+  color: #fff;
+  background-color: rgba(0,0,0,0.0);
+  &:hover {
+    color: #000;
+    background-color: #fff;
+  }
+}
+
+.btn-green {
+  color:#fff; 
+  background-color: rgba(0,200,0,0.8);
+  &:hover {
+    color: #fff;
+    background-color: rgba(0,200,0,1.0);
+  }
+}
+
+.btn-red {
+  color:#fff; 
+  background-color: rgba(200,0,0,0.8);
+  &:hover {
+    color: #fff;
+    background-color: rgba(200,0,0,1.0);
+  }
+}
+
+//フォロー関連
+//フォローの統計情報
+.stats {
+  font-size: 20px;
+  overflow: auto;
+  margin: 15 auto;
+  padding: 0;
+  a {
+    // float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: inline-block;
+  }
+}
+
+//フォロー詳細ページ
+.user-follow-wrapper {
+  padding-top: 70px;
+  background-color: #EEE;
+  
+  .user-follow-info {
+    
+  }
+}
 
 //トップページのCSS
 .top-wrapper {
@@ -162,7 +174,6 @@ h1, h2 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646
 }
 
 .top-container {
@@ -188,11 +199,16 @@ h1, h2 {
   }
   .service-all-item {
     display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
     .item {
       width:33%;
       text-align: center;
+      padding-top:20px;
+      margin-bottom:30px;
       .fas {
         font-size: 80px;
+        color:#990000;
       }
       .explanation {
         font-size:18px;
@@ -202,25 +218,26 @@ h1, h2 {
     
       img {
         width: 80%;
-        margin:10px;
+        border:medium;
+        border: solid #000;
       }
     }
     /* 幅が 767px 以下であれば */
-    @media (max-width:767px) {
+    @media(max-width:768px){
       .item {
-        width:80%;
+        width:100%;
         text-align: center;
         .fas {
-          font-size: 60px;
+          font-size: 90px;
         }
         .explanation {
-          font-size:14px;
+          font-size:20px;
           padding: 20px 0;
           margin:0 5px;
         }
         img {
           width: 80%;
-          margin:10px;
+          margin:20px;
         } 
       }
     }
@@ -231,66 +248,94 @@ h1, h2 {
   height: 45px;
 }
 
+//投稿関連
+
 //新規投稿ページのCSS
 .workout-new-wrapper {
   padding-top: 70px;
   background-color: #DDD;
-  height: 90vh;
+  height: 87vh;
 }
 
-//投稿一覧ページトップ
+//投稿一覧ページ
 .workout-index-wrapper {
   padding-top: 70px;
-  background-color: #EEE;
+  background-color: #DDD;
+  padding-bottom:20px;
   //投稿一覧
   .workout-index {
-    background-color: white;
+    background-color:white;
     padding-top: 20px 0;
-    margin-top: 30px;
-    border: 1px solid #000;
+    margin: 30px 0;
+    border: 2px solid #CCC;
     border-radius: 3px;
-    //投稿したユーザー名
-    .workout-author {
-      padding: 0 20px;
+    .workout-user-space {
+      display:flex;
+      //投稿したユーザーのアイコン
+      .workout-user-icon img {
+        margin:10px 0 10px 20px;
+        border:2px #000 solid;
+        border-radius:50%;
+        width:50px;
+        height:50px;      
+      }
+      //投稿したユーザー名
+      .workout-author {
+        font-size:30px;
+        margin:auto 5px;
+      }
     }
      //投稿したテキスト内容
     .workout-text {
-      font-size: 20px;
+      font-size: 18px;
       padding: 10px 20px;
     }
     //画像
-    img {
-      margin-top: 10px 0 20px 0;
+    .workout-image img{
+      padding:10px 20px ;
       width: 100%;
     }
     //いいねとコメントアイコン
-    .workout-index-icon i { 
+    .workout-index-icon { 
       font-size: 20px;
-      width: 35px;
       height: 30px;
       padding-left: 20px;
+      .unlike-btn {
+        color:red;
+      }
     }
-    .comment {
+    .workout-time {
+      text-align:right;
+      padding-right:20px;
+    }
+    .delete-btn {
+       padding-left:20px;
+    }
+    
+    .comment-index {
       font-size: 20px;
       padding: 0 0 10px 20px;
+      .comment-single {
+        font-size:15px;
+        padding:10px;
+      }
     }
   }
 }
-//ユーザー関連
+
+//***ユーザー関連***
 
 //ユーザー新規登録ページ
 .users-new-wrapper {
-  width: 100vw;
   height: 125vh;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-size: cover;
+  background-color: #999;
 
   .users-new-container {
-    padding-top: 220px;
-
+    padding:20px;
     .form-group {
       margin-bottom: 20px;
     }
@@ -301,19 +346,8 @@ h1, h2 {
   background-color: #DDD;
   text-align: center;
   
-  .user-background-image {
-    position: relative; /* 子要素の起点を指定 */
-    width: 100%;
-    height: 240px;
-  }
-  
   .user-icon {
-    position: absolute;
-    top: 0; /* 上からの位置指定 */
-    bottom: 0; /* 下からの位置指定 */
-    left: 0; /* 左からの位置指定 */
-    right: 0; /* 右からの位置指定 */
-    margin: 200px auto 0 auto; /* 位置調整と組み合わせて上下中央に */
+    margin-top:30px;
     border: 2px #000 solid;
     border-radius: 50%;
     width: 180px;
@@ -323,7 +357,7 @@ h1, h2 {
   .user-name {
     font-size: 45px;
     font-weight: 500;
-    margin: 80px 0 0 0;
+    margin-top: 20px;
   }
   
   .user-status {
@@ -353,84 +387,106 @@ h1, h2 {
 
 .user-edit-wrapper {
   background-color: #DDD;
-  height: 90vh;
 }
 
 
 //ユーザーのトレーニングデータ
 .user-data-wrapper { 
   background-color: #DDD;
-  img {
-    padding-top: 10px;
-    width: 300px;
-    height: 300px;
-
-  }
-
-  .data-sub-title {
-    width: 100%;
-    position: relative;
-    display: inline-block;
+  text-align: center; 
+  .data-menu {
+    width: 50%;
+    margin: 0 auto 20px;
     font-weight: bold;
     padding: 0.5em 1em;
     border-top: solid 4px #000;
     border-bottom: solid 4px #000;
     background: #fff;
   }
-}
-//ユーザーの投稿
-.user-index-wrapper {
-  background-color: #DDD;
-  
-  h2 {
-    text-align: center;
+  .sub-menu {
+    // display: flex;
+    margin:auto;
+    width:50%;
+    text-align: center;  
+    img{
+      margin:auto;
+      width:100%;
+    }
   }
 }
 
+//ユーザーの投稿
+.user-workout-wrapper {
+  background-color: #DDD;
+  .user-name {
+    padding-top:20px;
+    text-align: center;
+    font-size:35px;
+    font-weight:bold;
+  }
+  .not-workout {
+    text-align:center;
+    font-size:25px;
+    padding: 20px;
+  }
+}
 //ユーザー一覧ページ
-
 .users-index-wrapper {
   padding-top: 70px;
-  background-color: #EEE;
+  background-color: #DDD;
+  .user-index-single{
+    margin-bottom:20px;
+    background-color: white;
+    padding:20px;
+    font-size:18px;
+    color: #white;
+    border: solid 2px #CCC;
+  }
 }
 
-//いいね一覧ページのCSS
-.likes-index-wrapper {
-  padding-top: 70px;
-  background-color: #EEE;
-  // .likes-heading {
-  // text-align: center;
-    .like_workouts-index {
-      background-color: white; //
-      padding-top: 20px;
-      padding-bottom: 20px;
-      margin-top: 30px;
-      border: 1px solid #000;
-      border-radius: 3px;
-      //投稿したユーザー名
-      .workout-author {
-        padding-right: 20px;
-        padding-left: 20px;
+//ユーザーのトレーニングメニュー作成
+.menu-new-wrapper {
+  background-color:#DDD;
+}
+
+//トレーニングメニュー一覧
+.menu-index-wrapper {
+  background-color:#DDD;
+  .menu-index {
+    background-color:white;
+    padding:20px;
+    margin: 30px 0;
+    border: 2px solid #CCC;
+    border-radius: 3px;
+    
+
+    .menu-index-1 {
+      font-size:20px;
+      display:flex;
+      .part-name {
+      height:50px;
+      width:50px;
+      border-radius:50%;
+      line-height:50px;
+      text-align:center;
+      background:pink;
       }
-       //投稿したテキスト内容
-      .workout-text {
-        padding-right: 20px;
-        padding-left: 20px;
-      }
-  
-      img {
-        margin-top: 10px;
-        margin-bottom: 20px;
-        width: 100%;
-      }
-      //いいねとコメントアイコン
-      .workout-index-icon { 
-        width: 35px;
-        height: 30px;
-        margin-left: 20px;
+      .training-name {
+        margin:auto 10px;
       }
     }
-  // }
+    .menu-index-2 {
+      padding:10px;
+      font-size:15px;
+      display:flex;
+      .menu-2 {
+        padding-right:10px;
+      }
+    }
+    .menu-index-3 {
+      padding:5px 10px;
+    }
+  }
 }
 
 //ページネーションのデザイン
@@ -450,6 +506,7 @@ h1, h2 {
   border-radius: 15px; //角を丸くする
 }
 
+//フッター
 .footer {
   padding:10px 0;
   background-color:#009;

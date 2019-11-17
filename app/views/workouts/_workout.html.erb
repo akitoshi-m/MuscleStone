@@ -1,27 +1,31 @@
 <div class="workout-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="workout-heading">筋トレ日記</h1>
-        <%= paginate @workouts %>
-        <% @workouts.each do |workout| %>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">筋トレ日記</h1>
+          <%= paginate @workouts %>
+          <% @workouts.each do |workout| %>
           <div class="workout-index">
-            <!-- 投稿者の名前を表示 -->
-            <h2 class="workout-author">
-              <%= link_to "#" do %>
+            <div class="workout-user-space">
+              <!--投稿者のアイコンを表示-->
+              <div class="workout-user-icon">
+                <%= image_tag workout.user.image_icon.url %>
+              </div>
+              <!-- 投稿者の名前を表示 -->
+              <div class="workout-author">
                 <%= workout.user.name %>
-              <% end %>
-            </h2>
-            <!-- 画像投稿があれば表示 -->
-            <p>
-              <%= image_tag workout.image.url if workout.image? %>
-            </p> 
+              </div>
+            </div>
             <!-- 投稿の内容を表示 -->
-            <p class="workout-text">
+            <div class="workout-text">
               <%= link_to workout_path(id: workout.id) do %>
                 <%= workout.description %>
               <% end %>
-            </p> 
+            </div> 
+            <!-- 画像投稿があれば表示 -->
+            <div class="workout-image">
+              <%= image_tag workout.image.url if workout.image? %>
+            </div> 
             <div class="workout-index-icon">
               <!-- いいねボタンを表示 -->
               <% if !workout.like_users.include?(current_user) %>
@@ -40,11 +44,15 @@
                 <i class="far fa-comment"></i>
               <% end %>
             </div>
-            <div class="comment">みんなのコメント</div>
-            <!-- コメント内容を表示 -->
-            <% workout.comments.each do |comment| %>
-              <p><%= comment.content %></p>
-            <% end %>
+            <div class="comment-index">
+              <p>みんなのコメント</p>
+              <!-- コメント内容を表示 -->
+              <div class="comment-single">
+                <% workout.comments.each do |comment| %>
+                  <p><%= comment.content %></p>
+                <% end %>
+              </div>
+            </div>
           </div>
         <% end %>
         <%= paginate @workouts %>

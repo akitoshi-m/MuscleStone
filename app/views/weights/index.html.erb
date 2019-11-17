@@ -1,8 +1,14 @@
-<h1>Weights#index</h1>
-<p>Find me in app/views/weights/index.html.erb</p>
-
-<%= link_to 'データ作成', new_weight_path %>
-
-<!--canvasy要素→ビットマップキャンバスを提供するタグ-->
-<canvas id="myChart" width="2" height="1"></canvas>
-<script>draw_graph();</script>
+<div class="weight-top-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="weight-data-create">
+          <%= link_to 'データ作成', new_weight_path %>
+        </div>
+        <!--canvasy要素→ビットマップキャンバスを提供するタグ-->
+        <canvas id="myChart" width="2" height="1"></canvas>
+        <script>draw_graph();</script>
+      </div>
+    </div>
+  </div>
+</div>

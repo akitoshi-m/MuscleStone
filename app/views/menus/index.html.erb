@@ -1,46 +1,57 @@
-<div class="workout-index-wrapper">
+<div class="menu-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="menu-heading">○○さんのトレーニングメニュー</h1>
-        <div class="add-training">
-          <%= link_to new_menu_path do %>
-            <p>トレーニングメニュー追加</p>
-          <% end %>
-        </div>
-        <% @menus.each do |menu| %>
-          <!-- トレーニングメニューを表示 -->
-          <div class="menu-index">
-            <!-- 部位 -->
-            <p class="training-name">
-              <%= menu.part %>
-            </p>
-            <!-- 名称 -->
-            <p class="training_name">
-              <%= menu.training_name %>
-            </p>
-            <!-- 重量 -->
-            <p class="weight">
-              <%= menu.weight %>
-            </p>
-            <!-- 回数 -->
-            <p class="rep">
-              <%= menu.rep %>
-            </p>
-            <!-- 回数 -->
-            <p class="rep">
-              <%= menu.rep %>
-            </p>
-            <!-- セット数 -->
-            <p class="set">
-              <%= menu.set %>
-            </p>
-            <!-- コメント -->
-            <p class="comment">
-              <%= menu.comment %>
-            </p>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center"><%= @user.name %>さんのトレーニングメニュー</h1>
+        <!--ログインしてるユーザーのみメニュー追加できる-->
+        <% if current_user.id == @user.id %>
+          <div class="add-training-btn btn btn-red">
+            <%= link_to new_menu_path(user_id: @user.id) do %>
+              トレーニングメニュー追加
+            <% end %>
           </div>
-        <% end %>    
+        <% end %>
+        <!-- トレーニングメニューを表示 -->
+        <% @user.menus.each do |menu| %>
+          <div class="menu-index">
+            <div class="menu-index-1">
+              <!-- 部位 -->
+              <div class="part-name">
+                <span><%= menu.part %></span>
+              </div>
+              <!-- 名称 -->
+              <div class="training-name">
+                <%= menu.training_name %> 
+              </div>
+            </div>
+            <div class="menu-index-2">
+              <!-- 重量 -->
+              <div class="menu-2">
+                重量：<%= menu.weight %>kg
+              </div>
+              <!-- 回数 -->
+              <div class="menu-2">
+                回数：<%= menu.rep %>回
+              </div>
+              <!-- セット数 -->
+              <div class="menu-2">
+                セット数：<%= menu.set %>セット
+              </div>
+            </div>
+            <!-- コメント -->
+            <div class="menu-index-3">
+              <%= menu.comment %>
+            </div>
+            <!--current_userのみメニューを削除できる-->
+            <% if current_user.id == @user.id %>
+              <%= link_to menu_path(id: menu.id), method: :delete do %>
+                <div class="destroy-btn">
+                  <i class="fas fa-trash-alt"></i>メニューを削除
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %> 
       </div>
     </div>
   </div>

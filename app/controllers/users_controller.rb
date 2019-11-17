@@ -6,22 +6,19 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page]).per(25)
+    @users = User.all.page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
-    @workouts = @user.workouts.page(params[:page]).per(25)
+    @workouts = @user.workouts.page(params[:page]).per(10)
   end
     
   def create
     @user = User.new(user_params)
-    #デフォルトで画像を設定しておく
-    @user.image_icon = "default_icon.jpg"
-    @user.image_background = "default_background.jpg"
-    
+
     if @user.save
-      redirect_to workouts_path, success: '登録ができました'
+      redirect_to root_path, success: '登録ができました'
     else
       flash.now[:danger] = "登録に失敗しました"
       render :new
@@ -47,14 +44,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.page(params[:page]).per(25)
+    @users = @user.following.page(params[:page]).per(10)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(25)
+    @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'
   end  
   
@@ -67,7 +64,7 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :image_icon, :image_background, :height, :weight, :comment)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_icon, :height, :weight, :comment)
   end
   
   # def user_update_params

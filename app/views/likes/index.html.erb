@@ -1,37 +1,56 @@
-<div class="likes-index-wrapper">
+<div class="workout-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1 class="likes-heading">いいね一覧</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">いいね一覧</h1>
           <%= paginate @like_workouts %>
           <% @like_workouts.each do |workout| %>
-          <div class="like_workouts-index">
-            <!-- 投稿者の名前を表示 -->
-            <h2 class="workout-author">
-              <%= link_to "#" do %>
+          <div class="workout-index">
+            <!--投稿者のアイコンを表示-->
+            <div class="workout-user-space">
+              <div class="workout-user-icon">
+                <%= image_tag workout.user.image_icon.url %>
+                <!-- 投稿者の名前を表示 -->
+              </div>
+              <div class="workout-author">
                 <%= workout.user.name %>
-              <% end %>
-            </h2>
-            <!-- 画像投稿があれば表示 -->
-            <p class="workout-">
-              <%= image_tag workout.image.url if workout.image? %>
-            </p>
+              </div>
+            </div>
             <!-- 投稿の内容を表示 -->
-            <p class='workout-text'>
+            <div class="workout-text">
               <%= workout.description %>
-            </p>
-            <!-- いいねボタンを表示 -->
-            <% if !workout.like_users.include?(current_user) %>
-              <%= link_to likes_path(workout_id: workout.id), method: :post do %>
-                <i class="far fa-heart like-btn" ></i>
+            </div>
+            <!-- 画像投稿があれば表示 -->
+            <div class="workout-image">
+              <%= image_tag workout.image.url if workout.image? %>
+            </div> 
+            <div class="workout-index-icon">
+              <!-- いいねボタンを表示 -->
+              <% if !workout.like_users.include?(current_user) %>
+                <%= link_to likes_path(workout_id: workout.id), method: :post do %>
+                  <i class="far fa-heart like-btn" ></i>
+                <% end %>
+              <% else %>
+                <%= link_to likes_path(workout_id: workout.id), method: :delete do %>
+                  <i class="fas fa-heart unlike-btn"></i>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to likes_path(workout_id: workout.id), method: :delete do %>
-                <i class="fas fa-heart unlike-btn"></i>
+              <!-- いいね数を表示 -->
+              <%= workout.like_users.count %>
+              <!-- コメントマークを表示 -->
+              <%= link_to comments_new_path(workout_id: workout.id), method: :get do %>
+                <i class="far fa-comment"></i>
               <% end %>
-            <% end %>
-            <%= workout.like_users.count %>
-            <i class="far fa-comment", class: 'workout-index-icon'></i>
+            </div>
+            <div class="comment-index">
+              <p>みんなのコメント</p>
+              <!-- コメント内容を表示 -->
+              <div class="comment-single">
+                <% workout.comments.each do |comment| %>
+                  <p><%= comment.content %></p>
+                <% end %>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>

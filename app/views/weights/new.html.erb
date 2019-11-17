@@ -1,19 +1,20 @@
-<h1>Weights#new</h1>
-<p>Find me in app/views/weights/new.html.erb</p>
-<h1>自分の体重を入力しよう！</h1>
-<h2>目標に向かって一歩ずつ！</h2>
-<h2>ここに体重入力のフィールドを作る</h2>
-<h2>ここに日付入力のフィールドを作る</h2>
 <div class="weight-new-wrapper">
-  <%= form_for @weight do |f| %>
-    <div class="form-group">
-      <%= f.label :体重入力, class: 'text-black' %>
-      <%= f.number_field :weight, class: 'form-control' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>自分の体重を入力しよう！</h1>
+        <%= form_for @weight do |f| %>
+          <div class="form-group">
+            <%= f.label :体重入力, class: 'text-black' %>
+            <%= f.number_field :weight, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :日付入力, class: 'text-black' %>
+            <%= f.date_select :measure_date, class: 'form-control' %>
+          </div>
+          <%= f.submit '完了', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :日付入力, class: 'text-black' %>
-      <%= f.date_select :measure_date, class: 'form-control' %>
-    </div>
-    <%= f.submit '完了', class: 'btn btn-primary' %>
-  <% end %>
+  </div>
 </div>

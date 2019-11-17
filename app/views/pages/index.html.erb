@@ -11,13 +11,10 @@
         <p class="text-shadow sub-title">常に高みを目指す貴方へ向けた筋トレ管理アプリです。</p>
       </div>
       <div class="col-md-6 col-md-offset-3">
-        <%= link_to "アカウント登録", '/users/new',  class: 'btn btn-block btn-white' %>
-        <%= link_to "ログイン", 'sessions/new',      class: 'btn btn-block btn-white' %>
-        <%= form_for(:session, url: login_path) do |f| %>
-          <%= f.hidden_field :email, value: 'kawauso@aaa.com' %>
-          <%= f.hidden_field :password, value: 'kawauso12' %>
-          <%= f.submit 'テストユーザーとしてログイン', class: 'btn btn-block btn-white' %>
-        <% end %>
+        <%= link_to "アカウント登録", '/users/new',  class: 'btn btn-arrange btn-block btn-red' %>
+        <%= link_to "ログイン", 'sessions/new',      class: 'btn btn-arrange btn-block btn-red' %>
+        <p class="text-general">テストログインはこちらから</p>
+	      <%= render "shared/guest_login" %>
       </div>
     </div>
   </div>
@@ -31,25 +28,27 @@
   <div class="service-all-item">
     <div class="item">
   		<div class="fas fa-comments"></div>
-  		<p class="explanation">①トレーニング内容を共有できるSNSサービス</p>
-  		<%= image_tag('icons/f_wine.png') %>
+  		<p class="explanation">①トレーニング内容を記録できるSNSサービス</p>
+  		<%= image_tag('icons/f_workout.png') %>
   	</div>
     <div class="item">
-  		<div class="fas fa-dumbbell"></div>
-  		<p class="explanation">②自分専用のセットメニューを作成できる</p>
-  		<%= image_tag('icons/f_wine.png') %>
+  		<div class="fas fa-users"></div>
+  		<p class="explanation">②他のユーザーと筋トレ内容を共有できる</p>
+  		<%= image_tag('icons/f_user.png') %>
   	</div>
   	<div class="item">
-  		<div class="fas fa-chart-line"></div>
-  		<p class="explanation">③体重の変化をグラフで管理&確認ができる</p>
-  		<%= image_tag('icons/f_wine.png') %>
+  		<div class="fas fa-dumbbell"></div>
+  		<p class="explanation">③自分専用のセットメニューを作成できる</p>
+  		<%= image_tag('icons/f_menu.png') %>
   	</div>
   </div>
-	<div class="text-center">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.hidden_field :email, value: 'kawauso@aaa.com' %>
-      <%= f.hidden_field :password, value: 'kawauso12' %>
-      <%= f.submit 'テストユーザーとしてログイン', class: 'btn btn-primary btn-lg' %>
-    <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+      	<div class="text-center">
+      	  <%= render "shared/guest_login" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

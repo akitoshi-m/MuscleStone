@@ -16,6 +16,7 @@ class LikesController < ApplicationController
   end
   
   def destroy
+
     @like = Like.find_by(user_id: current_user.id, workout_id: params[:workout_id])
     @like.destroy
     redirect_to workouts_path, success: 'いいねを取り消しました'

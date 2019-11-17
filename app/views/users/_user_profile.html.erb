@@ -1,13 +1,10 @@
 <div class="user-top-wrapper">
-  <%= image_tag @user.image_background.url, class:"user-background-image" %>
-  <%#= image_tag('silentsiren.jpg', class: "user-background-image") %>
-  <div>
-    <%= image_tag @user.image_icon.url, class:"user-icon" %>
-    <%#= image_tag('icons/kawauso.png', class:"user-icon") %>
-  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
+        <div>
+          <%= image_tag @user.image_icon.url, class:"user-icon" %>
+        </div>
         <div class="user-name">
           <%= @user.name %>
         </div>
@@ -52,43 +49,29 @@
 
 <!--ユーザーのトレーニングデータ-->
 <div class="user-data-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-1">
-        <div class="data-sub-title">トレーニングメニュー</div>
-      </div>
-      <div class="col-xs-4 col-xs-offset-2">
-        <div class="data-sub-title">体重グラフ</div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-1">  
-        <%= link_to menus_path(current_user.id) do %> 
-          <%= image_tag 'icons/f_dumbbell.jpg' %>
-        <% end %>
-      </div>
-      <div class="col-xs-4 col-xs-offset-2"> 
-        <%= link_to weights_path do %>
-          <%= image_tag 'icons/f_graph.jpg' %>
-        <% end %>
-      </div>
-    </div>
+  <div class="data-menu">
+    トレーニングメニュー
+  </div>
+  <div class="sub-menu">
+    <%= link_to menus_path(user_id: @user.id) do %> 
+      <%= image_tag 'icons/f_dumbbell.jpg' %>
+    <% end %>
   </div>
 </div>
 
-<div class="user-index-wrapper">
+<div class="user-workout-wrapper">
   <div class="container">
+    <div class="user-name"><%= @user.name %>さんの投稿一覧</div>
     <% if @user.workouts.any? %>
       <div class="row">
         <div class="col-md-12">
-          <h2><%= @user.name %>さんの投稿一覧</h2>
           <p class="workout-index">
-            <ol class="microposts">
-              <%= render "workouts/workout" %>
-            </ol>
+            <%= render "workouts/workout" %>
           </p>
         </div>
       </div>
+    <% else %>
+      <p class="not-workout">まだ投稿がありません</p>
     <% end %>
   </div>
 </div>
