@@ -14,7 +14,6 @@ test:
   <<: *default
   database: muscle-habits_test
 
-
 production:
   <<: *default
   adapter: postgresql
