@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: muscle-habits_production
-  username: muscle-habits
-  password: <%= ENV['MUSCLE-HABITS_DATABASE_PASSWORD'] %>
+<<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
