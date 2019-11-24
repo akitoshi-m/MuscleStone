@@ -49,12 +49,7 @@ gem 'bcrypt'
 gem 'font-awesome-rails'
 gem "carrierwave"
 gem 'rails-i18n'
-gem "chartkick"
-gem "groupdate"
-gem "chart-js-rails"
 gem 'faker', '1.7.3'
-#gem 'will_paginate', '3.1.6'
-#gem 'bootstrap-will_paginate', '1.0.0'
 gem 'kaminari'
 gem 'gon'
 gem 'factory_bot_rails', '~> 4.11'
@@ -68,6 +63,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'rails-controller-testing'
   
 end
 
