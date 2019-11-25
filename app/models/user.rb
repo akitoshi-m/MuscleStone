@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   
-  validates :name, presence: true, length: { maximum: 15 }
+  validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, format: { with: /\A[A-Za-z0-9._+]*+@[A-Za-z]*+.[A-Za-z]*\z/ }
   
   has_secure_password
@@ -33,5 +33,5 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-
+  
 end

@@ -1,13 +1,6 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-# capybaraを扱う為に必要な機能を読み込む
-require 'capybara/rspec'
-
 RSpec.configure do |config|
-  # SystemRSpecを実行するドライバの設定。Headless Chromeを使う
-  config.before(:each, type: :system) do
-    driven_by :selenium_chrome_headless
-  end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
