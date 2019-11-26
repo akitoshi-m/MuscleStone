@@ -60,17 +60,9 @@ ActiveRecord::Schema.define(version: 2019_11_10_070835) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "comment"
     t.string "image_icon"
-  end
-
-  create_table "weights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "weight"
-    t.date "measure_date"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "workouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
