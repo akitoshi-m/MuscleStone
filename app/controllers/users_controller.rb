@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :following, :followers]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -25,6 +26,12 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+　def destroy
+　  User.find(params[:id]).destroy
+　  flash[:success] = "ユーザーを削除しました"
+　  redirect_to users_url
+　end
 
   def edit
     @user = User.find(params[:id])
@@ -67,8 +74,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_icon, :height, :weight, :comment)
   end
-  
-  # def user_update_params
-  #   params.require(:user).permit(:name, :email, :height, :weight, :comment)
-  # end
 end
