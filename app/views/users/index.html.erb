@@ -13,7 +13,7 @@
               </div>
               <!-- 投稿者の名前を表示 -->
               <div class="workout-author">
-                <%= user.name %>
+                <%= link_to user.name, user_path(id: user.id) %>
               </div>
             </div> 
           </div>
