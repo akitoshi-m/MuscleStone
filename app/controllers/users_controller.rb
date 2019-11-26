@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :following, :followers]
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in?, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: :destroy
 
   def new
     @user = User.new
@@ -27,18 +28,18 @@ class UsersController < ApplicationController
     end
   end
 
-　def destroy
-　  User.find(params[:id]).destroy
-　  flash[:success] = "ユーザーを削除しました"
-　  redirect_to users_url
-　end
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to users_url
+  end
 
   def edit
     @user = User.find(params[:id])
   end
   
   def update
-    #attributes 対象となるカラムだけを更新する　※バリデーションが走る
+    #attributes 対象となるカラムだけを更新する ※バリデーションが走る
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'ユーザー編集が完了しました'
@@ -73,5 +74,10 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_icon, :height, :weight, :comment)
+  end
+  
+  # 管理者かどうか確認
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end
