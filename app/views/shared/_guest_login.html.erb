@@ -1,5 +1,5 @@
     <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.hidden_field :email, value: 'guest@guest.com' %>
-      <%= f.hidden_field :password, value: 'guest1234' %>
-      <%= f.submit 'テストユーザーではじめてみる', class: 'btn btn-arrange btn-green btn-block' %>
+      <%= f.hidden_field :email, value: 'guestuser@aaa.com' %>
+      <%= f.hidden_field :password, value: 'guestuser12' %>
+      <%= f.submit 'ゲストユーザーではじめてみる', class: 'btn btn-arrange btn-green btn-block' %>
     <% end %>
