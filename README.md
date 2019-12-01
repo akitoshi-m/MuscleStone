@@ -21,5 +21,5 @@ https://morning-earth-83996.herokuapp.com/
 ## 開発環境
 - 言語(Ruby 2.6.3)
 - フレームワーク(Ruby on Rails 5.2.3)
-- 開発環境(Cloud9 / VSCode)
+- 開発環境(Cloud9)
 
