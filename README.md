@@ -17,6 +17,7 @@ https://morning-earth-83996.herokuapp.com/
 - インフラ（Heroku)
 - 画像アップロード（carrierwave）
 - デザイン（Bootstrap）
+- ハンバーガーメニュー
 
 ## 開発環境
 - 言語(Ruby 2.6.3)
