@@ -24,3 +24,12 @@ https://morning-earth-83996.herokuapp.com/
 - フレームワーク(Ruby on Rails 5.2.3)
 - 開発環境(Cloud9 / VSCode)
 
+## 今回導入していないが学習した技術
+- sorcery
+- i18nによる日本語化
+- content_forによる動的なタイトル表示
+- remote: trueを使ったAjax化
+- ajax関数を使用したAjax化
+- ransackによる検索機能
+
+
