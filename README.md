@@ -31,5 +31,5 @@ https://morning-earth-83996.herokuapp.com/
 - remote: trueを使ったAjax化
 - ajax関数を使用したAjax化
 - ransackによる検索機能
-
+- git flowによるgitでの作業
 
