@@ -15,12 +15,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: muscle-habits_development
   host: localhost
+  password: <%= ENV["PASSWORD"] %>
   port: 5432
 
 # Warning: The database defined as "test" will be erased and
@@ -29,6 +30,7 @@ development:
 test:
   <<: *default
   database: muscle-habits_test
+  password: <%= ENV["PASSWORD"] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
