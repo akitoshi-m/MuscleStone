@@ -5,8 +5,8 @@
         <div class="user-edit-heading">
           <h2 class="title">プロフィール編集</h2>
           <%= form_for @user do |f| %>
-            <%= f.hidden_field :password, :value => @user.password %>            
-            <%= f.hidden_field :password_confirmation, :value => @user.password_confirmation %>  
+            <%= f.hidden_field :password, :value => @user.password %>
+            <%= f.hidden_field :password_confirmation, :value => @user.password_confirmation %>
             <!-- プロフィール画像編集 -->
             <div class="form-group">
               <%= f.label :アイコン画像 %>
@@ -47,7 +47,7 @@
               </div>
             </div>
             <!-- プロフィール更新 --> 
-          　<%= f.submit "更新", class: 'btn btn-block btn-primary' %>
+            <%= f.submit "更新", class: 'btn btn-block btn-primary' %>
           <% end %>
         </div>
       </div>

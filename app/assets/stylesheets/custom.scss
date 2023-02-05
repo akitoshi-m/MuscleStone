@@ -10,7 +10,6 @@ ul {
 .text-white {
   color: #fff;
   font-size: 30px;
-  //font-weight: bold;
 }
 .text-general{
   color: #fff;
@@ -23,7 +22,8 @@ ul {
 
 .text-shadow {
   color: #fff;
-  text-shadow: 2px 2px 1px #000,
+  text-shadow:
+    2px 2px 1px #000,
     -2px 2px 1px #000,
     2px -2px 1px #000,
     -2px -2px 1px #000;
@@ -33,7 +33,7 @@ ul {
   font-size: 30px;
 }
 
-//アラート表示
+// アラート表示
 .alert {
   margin-bottom: 0px;
   position: fixed;
@@ -41,7 +41,7 @@ ul {
   z-index: 10000;
 }
 
-//ナビゲーションバー
+// ナビゲーションバー
 .navbar-transparent {
   font-size: 25px;
   margin-bottom: 0px;
@@ -59,10 +59,6 @@ ul {
   img {
     height: 40px;
   }
-}
-
-.navbar-left li {
-  
 }
 
 .navbar-right li {
@@ -129,7 +125,6 @@ ul {
   }
 }
 
-//フォロー関連
 //フォローの統計情報
 .stats {
   font-size: 20px;
@@ -137,7 +132,6 @@ ul {
   margin: 15 auto;
   padding: 0;
   a {
-    // float: left;
     padding: 0 10px;
     border-left: 1px solid $gray-lighter;
     color: gray;
@@ -155,17 +149,13 @@ ul {
   }
 }
 
-//フォロー詳細ページ
+// フォロー詳細ページ
 .user-follow-wrapper {
   padding-top: 70px;
   background-color: #EEE;
-  
-  .user-follow-info {
-    
-  }
 }
 
-//トップページのCSS
+// トップページのCSS
 .top-wrapper {
   width: 100vw;
   height: 100vh;
@@ -188,7 +178,7 @@ ul {
   }
 }
 
-//トップページのサービス紹介部分
+// トップページのサービス紹介部分
 .service-introduction {
   background-color: #DDD;
   .service-title {
@@ -248,21 +238,19 @@ ul {
   height: 45px;
 }
 
-//投稿関連
-
-//新規投稿ページのCSS
+// 新規投稿ページのCSS
 .workout-new-wrapper {
   padding-top: 70px;
   background-color: #DDD;
   height: 87vh;
 }
 
-//投稿一覧ページ
+// 投稿一覧ページ
 .workout-index-wrapper {
   padding-top: 70px;
   background-color: #DDD;
   padding-bottom:20px;
-  //投稿一覧
+  // 投稿一覧
   .workout-index {
     background-color:white;
     padding-top: 20px 0;
@@ -271,7 +259,7 @@ ul {
     border-radius: 3px;
     .workout-user-space {
       display:flex;
-      //投稿したユーザーのアイコン
+      // 投稿したユーザーのアイコン
       .workout-user-icon img {
         margin:10px 0 10px 20px;
         border:2px #000 solid;
@@ -279,23 +267,23 @@ ul {
         width:50px;
         height:50px;      
       }
-      //投稿したユーザー名
+      // 投稿したユーザー名
       .workout-author {
         font-size:30px;
         margin:auto 5px;
       }
     }
-     //投稿したテキスト内容
+     // 投稿したテキスト内容
     .workout-text {
       font-size: 18px;
       padding: 10px 20px;
     }
-    //画像
+    // 画像
     .workout-image img{
       padding:10px 20px ;
       width: 100%;
     }
-    //いいねとコメントアイコン
+    // いいねとコメントアイコン
     .workout-index-icon { 
       font-size: 20px;
       height: 30px;
@@ -323,9 +311,8 @@ ul {
   }
 }
 
-//***ユーザー関連***
-
-//ユーザー新規登録ページ
+// ***ユーザー関連***
+// ユーザー新規登録ページ
 .users-new-wrapper {
   height: 125vh;
   // background-position: center center;
@@ -341,7 +328,8 @@ ul {
     }
   }
 }
-//ユーザー詳細ページ
+
+// ユーザー詳細ページ
 .user-top-wrapper { 
   background-color: #DDD;
   text-align: center;
@@ -375,7 +363,6 @@ ul {
     
     .status-value {
       font-size: 17px;
-      // font-weight: bold;
     }
     
     ul {
@@ -388,7 +375,6 @@ ul {
 .user-edit-wrapper {
   background-color: #DDD;
 }
-
 
 //ユーザーのトレーニングデータ
 .user-data-wrapper { 
@@ -404,7 +390,6 @@ ul {
     background: #fff;
   }
   .sub-menu {
-    // display: flex;
     margin:auto;
     width:50%;
     text-align: center;  
@@ -415,7 +400,7 @@ ul {
   }
 }
 
-//ユーザーの投稿
+// ユーザーの投稿
 .user-workout-wrapper {
   background-color: #DDD;
   .user-name {
@@ -430,7 +415,7 @@ ul {
     padding: 20px;
   }
 }
-//ユーザー一覧ページ
+// ユーザー一覧ページ
 .users-index-wrapper {
   padding-top: 70px;
   background-color: #DDD;
@@ -439,17 +424,17 @@ ul {
     background-color: white;
     padding:20px;
     font-size:18px;
-    color: #white;
+    color: white;
     border: solid 2px #CCC;
   }
 }
 
-//ユーザーのトレーニングメニュー作成
+// ユーザーのトレーニングメニュー作成
 .menu-new-wrapper {
   background-color:#DDD;
 }
 
-//トレーニングメニュー一覧
+// トレーニングメニュー一覧
 .menu-index-wrapper {
   background-color:#DDD;
   .menu-index {
@@ -489,24 +474,23 @@ ul {
   }
 }
 
-//ページネーションのデザイン
+// ページネーションのデザイン
 .pagination li a {
   border: none;   //枠線をなくす
   color: #696969; //文字の色を帰る
 }
 
-//表示しているページ番号のデザイン
+// 表示しているページ番号のデザイン
 .pagination active a {
   background: #93c9ff; //背景の色
   border-radius: 15px; //角を丸くする
 }
 
-//ホバー時のデザイン
+// hover時のデザイン
 .pagination li a:hover {
   border-radius: 15px; //角を丸くする
 }
 
-//フッター
 .footer {
   padding:10px 0;
   background-color:#009;

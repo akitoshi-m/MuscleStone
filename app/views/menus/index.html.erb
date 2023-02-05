@@ -3,7 +3,6 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center"><%= @user.name %>さんのトレーニングメニュー</h1>
-        <!--ログインしてるユーザーのみメニュー追加できる-->
         <% if current_user.id == @user.id %>
           <div class="add-training-btn btn btn-red">
             <%= link_to new_menu_path(user_id: @user.id) do %>
@@ -11,38 +10,36 @@
             <% end %>
           </div>
         <% end %>
-        <!-- トレーニングメニューを表示 -->
+
         <% @user.menus.each do |menu| %>
           <div class="menu-index">
             <div class="menu-index-1">
-              <!-- 部位 -->
               <div class="part-name">
                 <span><%= menu.part %></span>
               </div>
-              <!-- 名称 -->
+
               <div class="training-name">
                 <%= menu.training_name %> 
               </div>
             </div>
             <div class="menu-index-2">
-              <!-- 重量 -->
+
               <div class="menu-2">
                 重量：<%= menu.weight %>kg
               </div>
-              <!-- 回数 -->
+
               <div class="menu-2">
                 回数：<%= menu.rep %>回
               </div>
-              <!-- セット数 -->
+
               <div class="menu-2">
                 セット数：<%= menu.set %>セット
               </div>
             </div>
-            <!-- コメント -->
+
             <div class="menu-index-3">
               <%= menu.comment %>
             </div>
-            <!--current_userのみメニューを削除できる-->
             <% if current_user.id == @user.id %>
               <%= link_to menu_path(id: menu.id), method: :delete do %>
                 <div class="destroy-btn">

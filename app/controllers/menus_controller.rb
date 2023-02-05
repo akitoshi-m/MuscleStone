@@ -3,9 +3,8 @@ class MenusController < ApplicationController
     @menu = Menu.new
     @user = User.find(params[:user_id])
   end
-  
+
   def index
-    # @menus = Menu.all.order(created_at: :desc)
     @user = User.find(params[:user_id])
   end
   
@@ -30,5 +29,4 @@ class MenusController < ApplicationController
   def menu_params
     params.require(:menu).permit(:part, :training_name, :weight, :rep, :set, :comment)
   end
-
 end
