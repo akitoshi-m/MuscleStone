@@ -12,13 +12,11 @@ class WeightsController < ApplicationController
     # gon.measure_date = []
     #   gon.measure_date << current_user.weights.pluck(:measure_date)
     # gon.weight = current_user.weights.pluck(:weight)
-
   end
-  
+
   def create
     @weight = current_user.weights.new(weight_params)
-    #user_idとweightが入った新規weightモデルのインスタンスを作る
-    
+
     if @weight.save
       redirect_to weights_path, success: "入力できました"
     else
@@ -26,7 +24,7 @@ class WeightsController < ApplicationController
       render :new
     end
   end
-  
+
   private
   def correct_user
     weight = Weight.find(params[:id])
@@ -34,7 +32,7 @@ class WeightsController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def weight_params
     params.require(:weight).permit(:weight, :measure_date)
   end

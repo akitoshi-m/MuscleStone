@@ -37,9 +37,8 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
-    #attributes 対象となるカラムだけを更新する ※バリデーションが走る
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'ユーザー編集が完了しました'
@@ -49,21 +48,21 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(10)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
+    @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'
   end  
-  
+
   private
   def correct_user
     user = User.find(params[:id])
@@ -71,12 +70,11 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_icon, :height, :weight, :comment)
   end
-  
-  # 管理者かどうか確認
+
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end

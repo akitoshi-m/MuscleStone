@@ -5,37 +5,36 @@
         <div class="col-md-6 col-md-offset-3">
           <h2 class="title">トレーニングメニュー追加</h2>
           <%= form_for @menu do |f| %>
-            <!-- 部位 -->
             <%= f.label :part, '部位', class: 'text-black' %>
             <%= f.select :part, [["胸", "胸"], ["肩", "肩"], ["背中", "背中"], ["脚", "脚"], ["腕", "腕"], ["腹", "腹"], ["その他", "その他"]] %>
-            <!-- トレーニング名称 -->
+
             <div class="form-group">
               <%= f.label :トレーニング名称, class: 'text-black' %>
               <%= f.text_field :training_name, class: 'form-control' %>
             </div>
-            <!-- 重量 -->
+
             <div class="form-group">
               <%= f.label :重量, class: 'text-black' %>
               <%= f.text_field :weight, class: 'form-control' %>
             </div>
-            <!-- 回数 -->
+
             <div class="form-group">
               <%= f.label :回数, class:'text-black' %>
               <%= f.text_field :rep, class: 'form-control' %>
             </div>
-            <!-- セット数 -->
+
             <div class="form-group">
               <%= f.label :セット数, class:'text-black' %>
               <%= f.text_field :set, class: 'form-control' %>
             </div>
-            <!-- コメント -->
+
             <div class="form-group">
               <%= f.label :comment, 'コメント', class:'text-black' %>
               <%= f.text_area :comment, class: "form-control", rows: "3" %>
             </div>
-            <!-- トレーニングメニュー追加ボタン --> 
+
             <% if current_user.id == @user.id %>
-          　   <%= f.submit "追加", class: 'btn btn-block btn-primary' %>
+              <%= f.submit "追加", class: 'btn btn-block btn-primary' %>
             <% end %>
           <% end %>
         </div>
